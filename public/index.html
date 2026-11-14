@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <meta name="description" content="NVGPT — a thoughtful AI chat assistant, built for what comes next.">
+  <title>NVGPT — Next Version Generative Pre-trained</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10101b;--panel:#151522;--panel2:#1b1a2a;--line:#ffffff13;--text:#f4f1fb;--muted:#a19caf;--purple:#a87aff;--purple2:#7944d5;--user:#29243c;--green:#73d8bd}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,textarea{font:inherit}button{color:inherit}.app{min-height:100vh;display:grid;grid-template-columns:260px 1fr}.sidebar{background:#0d0d16;border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:22px}.brand{display:flex;align-items:center;gap:11px;padding:2px 7px}.logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(145deg,#b894ff,#733bea);display:grid;place-items:center;box-shadow:0 6px 24px #8c58fb55;color:white;font-size:19px}.brand-name{font-weight:750;letter-spacing:.02em}.brand-sub{font-size:10px;color:var(--muted);margin-top:1px}.new-chat{display:flex;align-items:center;gap:10px;width:100%;border:1px solid #a87aff42;background:#8b53e51a;padding:11px 12px;border-radius:12px;text-align:left;cursor:pointer}.new-chat:hover,.suggestion:hover{background:#a87aff22}.section-label{text-transform:uppercase;letter-spacing:.14em;color:#817d8d;font-size:10px;font-weight:700;padding:0 10px}.recent{display:flex;flex-direction:column;gap:4px;min-height:0}.recent-list{display:flex;flex-direction:column;gap:3px;margin-top:8px;overflow:auto}.recent-item{border:0;background:transparent;text-align:left;color:#b5b1c0;padding:9px 10px;border-radius:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;font-size:13px}.recent-item:hover,.recent-item.active{background:#ffffff0b;color:var(--text)}.side-bottom{margin-top:auto;color:var(--muted);font-size:12px}.side-note{border:1px solid var(--line);border-radius:13px;padding:13px;background:#ffffff05}.side-note strong{display:block;color:#ded9e9;font-size:12px;margin-bottom:4px}.main{min-width:0;display:flex;flex-direction:column;height:100vh}.topbar{height:62px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;background:#10101bd9;backdrop-filter:blur(16px);flex-shrink:0}.model-pill{display:flex;gap:8px;align-items:center;background:#ffffff08;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12px;color:#e4deef}.model-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #73d8bd88}.top-hint{font-size:12px;color:var(--muted)}.content{flex:1;overflow:auto;display:flex;flex-direction:column}.welcome{width:min(790px,100%);margin:auto;padding:54px 24px 30px;text-align:center}.orb{width:68px;height:68px;margin:0 auto 23px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ffd1fb 0,#bb8cff 17%,#713aca 47%,#242047 74%);box-shadow:0 0 54px #9254df66, inset -8px -8px 18px #131127;position:relative}.orb:after{content:"";position:absolute;inset:-5px;border:1px solid #cfaeff44;border-radius:50%;transform:rotate(-25deg) scaleX(1.34)}.welcome h1{font-size:clamp(28px,4vw,40px);line-height:1.15;letter-spacing:-.04em;margin:0 0 12px;font-weight:620}.welcome h1 span{background:linear-gradient(90deg,#d9bdff,#9d72ec,#f0c4ef);-webkit-background-clip:text;background-clip:text;color:transparent}.welcome p{color:var(--muted);margin:0 auto;max-width:530px}.suggestions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;text-align:left}.suggestion{background:#171624;border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;min-height:104px;transition:.18s}.suggestion-icon{font-size:17px;color:#c5a5ff}.suggestion strong{display:block;font-size:13px;margin:7px 0 3px}.suggestion span:last-child{display:block;color:var(--muted);font-size:11px;line-height:1.45}.messages{width:min(790px,100%);margin:0 auto;padding:32px 24px 20px;display:flex;flex-direction:column;gap:24px}.message{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}.avatar{height:32px;width:32px;border-radius:11px;background:#28213a;display:grid;place-items:center;font-size:15px;color:#d9bdff}.message.user .avatar{background:#273747;color:#bfe8fa}.message-body{min-width:0}.message-label{font-size:11px;color:var(--muted);margin:2px 0 6px}.message-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;color:#e6e2ec}.message.user .message-text{display:inline-block;background:var(--user);border:1px solid #ffffff0d;border-radius:14px;padding:10px 14px}.composer-wrap{padding:10px 24px 14px;background:linear-gradient(transparent,#10101b 25%);flex-shrink:0}.composer{width:min(790px,100%);margin:0 auto;border:1px solid #ffffff20;background:#1a1927;border-radius:18px;padding:12px 12px 9px;box-shadow:0 12px 38px #0003}.composer:focus-within{border-color:#a87aff88;box-shadow:0 0 0 3px #a87aff12,0 12px 38px #0003}.composer textarea{display:block;width:100%;resize:none;max-height:180px;min-height:30px;border:0;outline:0;background:transparent;color:var(--text);padding:2px 4px;line-height:1.5}.composer textarea::placeholder{color:#8e8999}.composer-actions{display:flex;align-items:center;justify-content:space-between;margin-top:7px}.composer-hint{font-size:10px;color:#817c8c}.send{height:34px;width:36px;border:0;border-radius:11px;background:linear-gradient(135deg,#a77aff,#7743d5);display:grid;place-items:center;cursor:pointer}.send:disabled{opacity:.45;cursor:default}.disclaimer{text-align:center;color:#767182;font-size:10px;margin:9px 0 0}.error{color:#ffaaa8;font-size:13px}.typing{display:flex;gap:5px;padding:8px 0}.typing i{width:6px;height:6px;border-radius:50%;background:#c9b4e8;animation:bounce 1s infinite ease-in-out}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}.menu{display:none;border:0;background:transparent;font-size:20px;cursor:pointer}.mobile-overlay{display:none}
+    @media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{position:fixed;inset:0 auto 0 0;width:270px;z-index:5;transform:translateX(-102%);transition:transform .2s ease;box-shadow:20px 0 60px #0007}.sidebar.open{transform:translateX(0)}.mobile-overlay.show{display:block;position:fixed;inset:0;z-index:4;background:#0008}.menu{display:block}.topbar{padding:0 15px;gap:12px}.top-hint{display:none}.welcome{padding:42px 19px 25px}.suggestions{grid-template-columns:1fr;gap:8px;margin-top:25px}.suggestion{min-height:auto;padding:12px}.suggestion span:last-child{display:inline}.messages{padding:24px 18px}.composer-wrap{padding:10px 13px 12px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Chat navigation">
+      <div class="brand"><div class="logo" aria-hidden="true">✦</div><div><div class="brand-name">NVGPT</div><div class="brand-sub">NEXT VERSION AI</div></div></div>
+      <button class="new-chat" id="newChat"><span aria-hidden="true">＋</span> New chat</button>
+      <div class="recent"><div class="section-label">Recent</div><div class="recent-list" id="recentList"></div></div>
+      <div class="side-bottom"><div class="side-note"><strong>NVGPT is just getting started</strong>AI Chat is the first feature. Image, coding, documents, and voice can come next.</div><div style="padding:13px 9px 0">Made for what comes next ✦</div></div>
+    </aside>
+    <div class="mobile-overlay" id="overlay"></div>
+    <main class="main">
+      <div class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="menu" id="menu" aria-label="Open menu">☰</button><div class="model-pill"><span class="model-dot"></span> NVGPT Chat <span style="color:#898494">▾</span></div></div><div class="top-hint">A new kind of thinking partner</div></div>
+      <div class="content" id="content">
+        <section class="welcome" id="welcome"><div class="orb" aria-hidden="true"></div><h1>Welcome to <span>NVGPT</span></h1><p>Your AI thinking partner. Ask a question, explore an idea, or get help with something you’re working on.</p><div class="suggestions">
+          <button class="suggestion" data-prompt="Explain a difficult topic in simple words, with an example."><span class="suggestion-icon">✧</span><strong>Explain something</strong><span>Make a tricky topic easy to understand.</span></button>
+          <button class="suggestion" data-prompt="Help me brainstorm creative ideas for a project. Ask me what the project is if you need more context."><span class="suggestion-icon">◈</span><strong>Brainstorm ideas</strong><span>Turn a blank page into a starting point.</span></button>
+          <button class="suggestion" data-prompt="Help me write a clear, friendly message. Ask me what I want to say if needed."><span class="suggestion-icon">⌁</span><strong>Help me write</strong><span>Get a first draft, rewrite, or fresh perspective.</span></button>
+        </div></section>
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </div>
+      <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="prompt" rows="1" maxlength="8000" placeholder="Message NVGPT..." aria-label="Message NVGPT"></textarea><div class="composer-actions"><span class="composer-hint">Enter to send · Shift + Enter for a new line</span><button class="send" id="send" type="submit" aria-label="Send message"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5m0 0L6 11m6-6 6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></form><div class="disclaimer">AI can make mistakes. Check important information.</div></div>
+    </main>
+  </div>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const chats = [];
+    let activeChat = null;
+    let busy = false;
+    function newChat() {
+      activeChat = { id: crypto.randomUUID(), title: 'New chat', messages: [] };
+      chats.unshift(activeChat);
+      $('messages').replaceChildren();
+      $('welcome').classList.remove('hidden');
+      $('welcome').style.display = '';
+      renderRecent(); closeMenu(); $('prompt').focus();
+    }
+    function closeMenu() { $('sidebar').classList.remove('open'); $('overlay').classList.remove('show'); }
+    function renderRecent() {
+      const list = $('recentList'); list.replaceChildren();
+      chats.slice(0, 15).forEach((chat) => {
+        const button = document.createElement('button'); button.className = 'recent-item' + (activeChat && chat.id === activeChat.id ? ' active' : '');
+        button.textContent = chat.title; button.onclick = () => openChat(chat); list.appendChild(button);
+      });
+    }
+    function openChat(chat) {
+      activeChat = chat; $('messages').replaceChildren();
+      $('welcome').style.display = chat.messages.length ? 'none' : '';
+      chat.messages.forEach((message) => addMessage(message.role, message.content, false));
+      renderRecent(); closeMenu();
+    }
+    function addMessage(role, text, scroll = true) {
+      const row = document.createElement('article'); row.className = 'message ' + role;
+      const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = role === 'user' ? '◉' : '✦';
+      const body = document.createElement('div'); body.className = 'message-body';
+      const label = document.createElement('div'); label.className = 'message-label'; label.textContent = role === 'user' ? 'You' : 'NVGPT';
+      const content = document.createElement('div'); content.className = 'message-text'; content.textContent = text;
+      body.append(label, content); row.append(avatar, body); $('messages').appendChild(row);
+      if (scroll) $('content').scrollTop = $('content').scrollHeight;
+      return row;
+    }
+    async function sendMessage(text) {
+      const message = text.trim(); if (!message || busy) return;
+      if (!activeChat) newChat();
+      activeChat.messages.push({ role: 'user', content: message });
+      if (activeChat.title === 'New chat') activeChat.title = message.length > 34 ? message.slice(0, 34) + '…' : message;
+      $('welcome').style.display = 'none'; addMessage('user', message); renderRecent();
+      $('prompt').value = ''; resizeInput(); busy = true; $('send').disabled = true;
+      const pending = document.createElement('article'); pending.className = 'message assistant';
+      const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = '✦';
+      const body = document.createElement('div'); body.className = 'message-body';
+      const label = document.createElement('div'); label.className = 'message-label'; label.textContent = 'NVGPT';
+      const dots = document.createElement('div'); dots.className = 'typing'; dots.setAttribute('aria-label', 'NVGPT is thinking');
+      for (let i = 0; i < 3; i++) dots.appendChild(document.createElement('i'));
+      body.append(label, dots); pending.append(avatar, body); $('messages').appendChild(pending); $('content').scrollTop = $('content').scrollHeight;
+      try {
+        const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: activeChat.messages.slice(-20) }) });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'NVGPT could not respond. Please try again.');
+        if (!data.reply) throw new Error('NVGPT returned an empty reply. Please try again.');
+        pending.remove(); activeChat.messages.push({ role: 'assistant', content: data.reply }); addMessage('assistant', data.reply);
+      } catch (error) {
+        pending.remove(); const failed = addMessage('assistant', error.message || 'Something went wrong. Please try again.'); failed.querySelector('.message-text').classList.add('error');
+      } finally { busy = false; $('send').disabled = false; $('prompt').focus(); }
+    }
+    function resizeInput() { const input = $('prompt'); input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 180) + 'px'; }
+    $('chatForm').addEventListener('submit', (event) => { event.preventDefault(); sendMessage($('prompt').value); });
+    $('prompt').addEventListener('input', resizeInput);
+    $('prompt').addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); $('chatForm').requestSubmit(); } });
+    $('newChat').onclick = newChat;
+    $('menu').onclick = () => { $('sidebar').classList.add('open'); $('overlay').classList.add('show'); };
+    $('overlay').onclick = closeMenu;
+    document.querySelectorAll('.suggestion').forEach((button) => button.addEventListener('click', () => sendMessage(button.dataset.prompt)));
+  </script>
+</body>
+</html>
