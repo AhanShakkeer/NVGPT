@@ -53,8 +53,18 @@ export async function onRequestPost({ request, env }) {
     }
     return json({ reply: reply.trim() });
   } catch (error) {
-    console.error('NVGPT AI request failed:', error);
-    return json({ error: 'NVGPT could not reach its AI model right now. Please try again in a moment.' }, 502);
+    const requestId = request.headers.get('cf-ray') || crypto.randomUUID();
+    console.error('NVGPT AI request failed', {
+      requestId,
+      model: MODEL,
+      name: error instanceof Error ? error.name : 'UnknownError',
+      message: error instanceof Error ? error.message : String(error),
+      code: error && typeof error === 'object' && 'code' in error ? error.code : undefined,
+      status: error && typeof error === 'object' && 'status' in error ? error.status : undefined
+    });
+    return json({
+      error: `NVGPT could not reach its AI model right now. Please try again in a moment. (Reference: ${requestId})`
+    }, 502);
   }
 }
 
